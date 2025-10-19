@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <!-- 🔵 Imagen de fondo -->
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="253dp"
+                    android:layout_height="338dp"
+                    android:alpha="0.25"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.357"
+                    app:srcCompat="@drawable/pokemon_background2" />
+
+                <!-- 🔴 LOGO -->
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="116dp"
+                    android:layout_height="47dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pokedex_logo"
+                    android:elevation="4dp" />
+
+                <!-- 🔍 CAMPO DE BÚSQUEDA -->
+                <EditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="169dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/search_bar_background"
+                    android:backgroundTint="@color/material_dynamic_neutral60"
+                    android:hint="Escribe id o nombre"
+                    android:textColor="@color/design_default_color_error"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:elevation="4dp" />
+
+                <Button
+                    android:id="@+id/searchButton"
+                    android:layout_width="97dp"
+                    android:layout_height="49dp"
+                    android:backgroundTint="@color/material_dynamic_neutral60"
+                    android:text="Buscar"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/searchInput"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:elevation="4dp" />
+
+                <!-- 🟡 Imagen del Pokémon -->
+                <ImageView
+                    android:id="@+id/pokemonImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="Imagen del Pokémon"
+                    android:elevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+                <!-- 🔠 Nombre -->
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:elevation="4dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pokemonImage" />
+
+                <!-- 🟩 ID, Altura y Peso en la parte superior izquierda -->
+                <LinearLayout
+                    android:id="@+id/infoLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3">
+
+                        <TextView
+                            android:id="@+id/tvId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 🟢 BOTÓN DETALLES -->
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/material_dynamic_neutral80"
+                    android:elevation="4dp"
+                    android:textColor="@color/design_default_color_error"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pokemonImage"
+                    app:rippleColor="@color/design_default_color_error" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
