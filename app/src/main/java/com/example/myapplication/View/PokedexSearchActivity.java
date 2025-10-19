@@ -1,5 +1,6 @@
 package com.example.myapplication.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +17,12 @@ public class PokedexSearchActivity extends AppCompatActivity {
 
     private EditText searchInput;
     private Button searchButton;
+    private Button detailsButton; // button2
     private TextView tvName, tvId, tvHeight, tvWeight;
     private ImageView pokemonImage;
+
+    // Guardamos el último pokemon obtenido para usarlo al pulsar "Detalles"
+    private Pokemon lastPokemon = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +31,32 @@ public class PokedexSearchActivity extends AppCompatActivity {
 
         searchInput = findViewById(R.id.searchInput);
         searchButton = findViewById(R.id.searchButton);
+        detailsButton = findViewById(R.id.button2);
         tvName = findViewById(R.id.tvName);
         tvId = findViewById(R.id.tvId);
         tvHeight = findViewById(R.id.tvHeight);
         tvWeight = findViewById(R.id.tvWeight);
         pokemonImage = findViewById(R.id.pokemonImage);
+
+        // Inicialmente no hay pokemon buscado
+        detailsButton.setEnabled(false);
+
+        // Listener del botón Detalles: solo abre Details si hay un pokemon guardado
+        detailsButton.setOnClickListener(v -> {
+            if (lastPokemon == null) {
+                Toast.makeText(PokedexSearchActivity.this, "Busca primero un Pokémon antes de ver detalles", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(PokedexSearchActivity.this, PokemonDetailsActivity.class);
+            intent.putExtra("id", lastPokemon.getId());
+            intent.putExtra("name", lastPokemon.getName());
+            intent.putExtra("imageUrl", lastPokemon.getImageUrl());
+            intent.putExtra("description", lastPokemon.getDescription());
+            // opcional: pasar height/weight si lo quieres en Details
+            intent.putExtra("height", lastPokemon.getHeight());
+            intent.putExtra("weight", lastPokemon.getWeight());
+            startActivity(intent);
+        });
 
         searchButton.setOnClickListener(v -> {
             String query = searchInput.getText().toString().trim();
@@ -42,8 +68,11 @@ public class PokedexSearchActivity extends AppCompatActivity {
             API.fetchPokemon(this, query, new API.PokemonCallback() {
                 @Override
                 public void onSuccess(Pokemon pokemon) {
+                    lastPokemon = pokemon; // guardamos el pokemon
+                    detailsButton.setEnabled(true);
+
                     tvName.setText("" + capitalize(pokemon.getName()));
-                    tvId.setText(""+pokemon.getId());
+                    tvId.setText("" + pokemon.getId());
                     tvHeight.setText("Altura: " + pokemon.getHeight());
                     tvWeight.setText("Peso: " + pokemon.getWeight());
 
