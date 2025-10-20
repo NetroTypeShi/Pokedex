@@ -51,7 +51,7 @@ public class API {
                                             for (int i = 0; i < entries.length(); i++) {
                                                 JSONObject entry = entries.getJSONObject(i);
                                                 JSONObject lang = entry.getJSONObject("language");
-                                                if ("en".equals(lang.getString("name"))) {
+                                                if ("es".equals(lang.getString("name"))) {
                                                     description = entry.getString("flavor_text")
                                                             .replace("\n", " ")
                                                             .replace("\f", " ")
