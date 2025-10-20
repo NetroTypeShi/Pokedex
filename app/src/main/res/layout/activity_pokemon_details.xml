@@ -36,7 +36,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:elevation="4dp"
-            android:textColor="@color/black"
+            android:textColor="#ED0909"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
