@@ -15,14 +15,14 @@ import com.example.myapplication.R;
 
 public class PokedexSearchActivity extends AppCompatActivity {
 
-    private EditText searchInput;
-    private Button searchButton;
-    private Button detailsButton; // button2
-    private TextView tvName, tvId, tvHeight, tvWeight;
-    private ImageView pokemonImage;
+    EditText searchInput;
+    Button searchButton;
+     Button detailsButton; // button2
+     TextView tvName, tvId, tvHeight, tvWeight;
+     ImageView pokemonImage;
 
     // Guardamos el último pokemon obtenido para usarlo al pulsar "Detalles"
-    private Pokemon lastPokemon = null;
+     Pokemon lastPokemon = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

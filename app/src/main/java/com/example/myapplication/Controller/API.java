@@ -11,9 +11,10 @@ import com.example.myapplication.Model.Pokemon;
 
 public class API {
 
-    public interface PokemonCallback {
-        void onSuccess(Pokemon pokemon);
-        void onError(String message);
+    // Versión más simple: clase concreta con métodos vacíos (no hace falta implementar ambos)
+    public static class PokemonCallback {
+        public void onSuccess(Pokemon pokemon) {}
+        public void onError(String message) {}
     }
 
     public static void fetchPokemon(Context ctx, String nameOrId, PokemonCallback callback) {
@@ -37,7 +38,7 @@ public class API {
                             imageUrl = null;
                         }
 
-                        // Ahora pedimos la especie para obtener la descripción (flavor text) en inglés
+                        // Ahora pedimos la especie para obtener la descripción (flavor text) en español si existe
                         String speciesUrl = "https://pokeapi.co/api/v2/pokemon-species/" + nameOrId.toLowerCase();
                         StringRequest speciesRequest = new StringRequest(
                                 Request.Method.GET,
