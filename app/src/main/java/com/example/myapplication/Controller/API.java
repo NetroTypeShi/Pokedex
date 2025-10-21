@@ -27,11 +27,11 @@ public class API {
                 response -> {
                     try {
                         JSONObject obj = new JSONObject(response);
-                        final int id = obj.getInt("id");
-                        final String name = obj.getString("name");
-                        final int height = obj.getInt("height");
-                        final int weight = obj.getInt("weight");
-                        final String imageUrl;
+                         int id = obj.getInt("id");
+                         String name = obj.getString("name");
+                         int height = obj.getInt("height");
+                         int weight = obj.getInt("weight");
+                        String imageUrl;
                         if (obj.has("sprites") && obj.getJSONObject("sprites").has("front_default")) {
                             imageUrl = obj.getJSONObject("sprites").optString("front_default", null);
                         } else {

@@ -38,7 +38,7 @@ public class PokedexSearchActivity extends AppCompatActivity {
         tvWeight = findViewById(R.id.tvWeight);
         pokemonImage = findViewById(R.id.pokemonImage);
 
-        // Inicialmente no hay pokemon buscado
+        // inicialmente no hay pokemon buscado
         detailsButton.setEnabled(false);
 
         // Listener del botón Detalles: solo abre Details si hay un pokemon guardado
@@ -92,5 +92,6 @@ public class PokedexSearchActivity extends AppCompatActivity {
     private String capitalize(String s) {
         if (s == null || s.isEmpty()) return s;
         return s.substring(0, 1).toUpperCase() + s.substring(1);
+        // pilla la primera letra y la pone en mayusculas
     }
 }
