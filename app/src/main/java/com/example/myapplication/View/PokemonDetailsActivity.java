@@ -54,6 +54,10 @@ public class PokemonDetailsActivity extends Activity {
 
         if (description != null && !description.isEmpty()) {
             tvDescription.setText(description.replace("\n", " ").replace("\f", " ").trim());
+            // la PokeAPI muchas veces contienen saltos de línea y caracteres especiales (como "\f") que
+            // al mostrarse tal cual producen saltos extraños, se ven fragmentados o introducen saltos de página que
+            // estropean la presentación.
+            //trim() quita espacios sobrantes al inicio/fin que podrían quedar tras la sustitución.
         } else {
             tvDescription.setText("Descripción no disponible");
         }
