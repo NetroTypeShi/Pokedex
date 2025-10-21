@@ -13,8 +13,8 @@ import com.example.myapplication.R;
 
 public class PokemonDetailsActivity extends Activity {
 
-    private TextView tvName, tvId, tvDescription;
-    private ImageView pokemonImage;
+    TextView tvName, tvId, tvDescription;
+    ImageView pokemonImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class PokemonDetailsActivity extends Activity {
         }
     }
 
-    private String capitalize(String s) {
+    String capitalize(String s) {
         if (s == null || s.isEmpty()) return s;
         return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
