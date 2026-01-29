@@ -9,4 +9,5 @@ class Pokemon // Nuevo constructor con description
     @JvmField val weight: Int,
     @JvmField val imageUrl: String?,
     @JvmField val description: String? = null
+    // claro si por defecto es null, por si se hay error pasa el pokemon si  descripcion
 )

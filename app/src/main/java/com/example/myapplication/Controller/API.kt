@@ -19,7 +19,7 @@ object API {
         val request = StringRequest(
             Request.Method.GET,
             url,
-            Response.Listener { response: String? ->
+            { response: String? ->
                 try {
                     val obj = JSONObject(response)
                     // creo el json, y obtengo las variables para almacenarlas
@@ -50,7 +50,7 @@ object API {
                     val speciesRequest = StringRequest( //pido los string de las descripciones
                         Request.Method.GET,  // lo obtengo
                         speciesUrl,
-                        Response.Listener { speciesResp: String? ->
+                        { speciesResp: String? ->
                             var description = "Descripción no disponible"
                             // por defecto como no disponible
                             try {
@@ -78,11 +78,11 @@ object API {
                             } catch (e: Exception) {
                                 // mantener descripción por defecto si falla parseo
                             }
-                            // almacenamos los datos en el constructor
+                            // almacenar los datos en el constructor
                             val pokemon = Pokemon(id, name, height, weight, imageUrl, description)
                             callback.onSuccess(pokemon)
                         },
-                        Response.ErrorListener { error: VolleyError? ->
+                        { error: VolleyError? ->
                             // Si falla species request, devolvemos el pokemon sin descripción
                             val pokemon = Pokemon(
                                 id,
@@ -101,7 +101,7 @@ object API {
                     callback.onError("Error al procesar JSON")
                 }
             },
-            Response.ErrorListener { error: VolleyError? -> callback.onError("No se encontró el Pokémon") }
+            { error: VolleyError? -> callback.onError("No se encontró el Pokémon") }
         )
 
         queue.add<String?>(request)

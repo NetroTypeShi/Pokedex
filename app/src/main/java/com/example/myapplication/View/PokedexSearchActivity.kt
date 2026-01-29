@@ -94,7 +94,7 @@ class PokedexSearchActivity : AppCompatActivity() {
             })
         })
     }
-
+    // NECESITO ABRIR UN PROYECTO NUEVO 
     private fun capitalize(s: String?): String? {
         if (s == null || s.isEmpty()) return s
         return s.substring(0, 1).uppercase(Locale.getDefault()) + s.substring(1)
